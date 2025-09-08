@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\HabiticaService;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class TodoController extends Controller
 {
@@ -15,6 +16,8 @@ class TodoController extends Controller
     {
         $todos = $this->habiticaService->getTodos();
         
-        return view('todos.index', compact('todos'));
+        return Inertia::render('Todos/Index', [
+            'todos' => $todos
+        ]);
     }
 }
