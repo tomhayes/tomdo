@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\TodoController;
+
+//Display todos
+Route::get('/todos', [TodoController::class, 'index'])->name('todos.index');
 
 Route::get('/', function () {
     return Inertia::render('Welcome');

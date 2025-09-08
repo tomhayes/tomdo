@@ -34,5 +34,9 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
-
+    'habitica' => [
+        'base_url' => 'https://habitica.com/api/v3',
+        'user_id' => env('HABITICA_USER_ID'),
+        'api_token' => env('HABITICA_API_TOKEN'),
+    ],
 ];
