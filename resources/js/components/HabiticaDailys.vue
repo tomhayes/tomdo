@@ -25,7 +25,7 @@ const formatDate = (date) => {
             <div>
                 <h3 class="card-title">{{ daily.text }}</h3>
                 <span>
-                    Next due: {{ daily.nextDue[0] }}
+                    Next due: {{ formatDate(daily.nextDue[0]) }}
                 </span>
                 <p v-if="daily.notes" class="card-text">{{ daily.notes }}</p>
             </div>
