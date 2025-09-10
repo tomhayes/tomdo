@@ -85,4 +85,13 @@ class WeightController extends Controller
             'has_weight_data' => !is_null($latest)
         ]);
     }
+    
+    public function getDashboardData()
+    {
+        return auth()->user()
+            ->weightEntries()
+            ->orderBy('recorded_at', 'desc')
+            ->limit(30)
+            ->get();
+    }
 }

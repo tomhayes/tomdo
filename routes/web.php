@@ -15,11 +15,15 @@ Route::get('/', function () {
     return Inertia::render('Welcome');
 })->name('home');
 
-Route::get('dashboard', function (HabiticaService $habiticaService) {
+Route::get('dashboard', function (HabiticaService $habiticaService, WeightController $weightController) {
     $todos = $habiticaService->getTodos();
+    $dailys = $habiticaService->getDailys();
+    $weight = $weightController->getDashboardData();
     
     return Inertia::render('Dashboard', [
-        'todos' => $todos
+        'todos' => $todos,
+        'dailys' => $dailys,
+        'weight' => $weight
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 

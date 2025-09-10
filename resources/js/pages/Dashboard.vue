@@ -5,9 +5,19 @@ import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/vue3';
 import PlaceholderPattern from '../components/PlaceholderPattern.vue';
 import HabiticaTodos from '@/components/HabiticaTodos.vue';
+import HabiticaDailys from '@/components/HabiticaDailys.vue';
+import WeightOverview from '@/components/WeightOverview.vue';
 
 const props = defineProps({
     todos: {
+        type: Array,
+        default: () => []
+    },
+    dailys: {
+        type: Array,
+        default: () => []
+    },
+    weight: {
         type: Array,
         default: () => []
     }
@@ -31,12 +41,12 @@ const breadcrumbs: BreadcrumbItem[] = [
                     <HabiticaTodos :todos="props.todos" />
                 </div>
                 <div class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                    <PlaceholderPattern />
+                    <HabiticaDailys :dailys="props.dailys" />
                 </div>
             </div>
             <div class="grid auto-rows-min gap-4 md:grid-cols-2">
                 <div class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                    <PlaceholderPattern />
+                    <WeightOverview :weight="props.weight" />
                 </div>
                 <div class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
                     <PlaceholderPattern />
