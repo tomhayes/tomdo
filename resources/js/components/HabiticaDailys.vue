@@ -24,6 +24,9 @@ const formatDate = (date) => {
         <div class="flex justify-between">
             <div>
                 <h3 class="card-title">{{ daily.text }}</h3>
+                <span>
+                    Next due: {{ daily.nextDue[0] }}
+                </span>
                 <p v-if="daily.notes" class="card-text">{{ daily.notes }}</p>
             </div>
             <div class="flex border-1 rounded-2xl border-gray-400 text-gray-400 justify-content-between align-items-center px-2 py-1 text-xs">
